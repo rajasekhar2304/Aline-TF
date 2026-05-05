@@ -4,7 +4,7 @@ variable "resource_group_name" {}
 variable "subnet_id" {}
 
 variable "vm_size" {
-  default = "Standard_B1s"
+  default = "Standard_B2ats"
 }
 
 variable "admin_username" {}
