@@ -7,3 +7,7 @@ vnet_cidr    = ["10.48.0.0/16"]
 subnet1_cidr = ["10.48.1.0/24"]
 subnet2_cidr = ["10.48.2.0/24"]
 subnet3_cidr = ["10.48.3.0/24"]
+subnet1_name = "web-subnet"
+subnet2_name = "app-subnet"
+subnet3_name = "db-subnet"
+allowed_ip   = "14.97.69.98"
