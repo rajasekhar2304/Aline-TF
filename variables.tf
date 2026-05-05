@@ -10,3 +10,4 @@ variable "subnet3_cidr" {}
 variable "subnet1_name" {}
 variable "subnet2_name" {}
 variable "subnet3_name" {}
+variable "allowed_ip" {}

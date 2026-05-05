@@ -19,3 +19,15 @@ module "vnet" {
   subnet2_name = var.subnet2_name
   subnet3_name = var.subnet3_name
 }
+
+module "nsg" {
+  source = "./modules/nsg"
+  nsg_name = "aline-nsg"
+  location = var.location
+  resource_group_name = module.rg.name
+  web_subnet_id = module.vnet.web_subnet_id
+  app_subnet_id = module.vnet.app_subnet_id
+  db_subnet_id  = module.vnet.db_subnet_id
+  allowed_ip = var.allowed_ip
+  subnet2_cidr = module.vnet.azurerm_subnet.app.address_prefixes
+}
