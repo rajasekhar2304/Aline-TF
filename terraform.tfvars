@@ -1,4 +1,4 @@
-rg-name  = "aline-infra"
-location = "eastus"
+rg-name     = "aline-infra"
+location    = "eastus"
 environment = "Prod"
-owner    = "DevOps"
+owner       = "DevOps"
