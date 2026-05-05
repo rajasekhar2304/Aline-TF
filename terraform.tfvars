@@ -1,5 +1,5 @@
 rg_name      = "aline-infra"
-location     = "eastus"
+location     = "centralindia"
 environment  = "Prod"
 owner        = "DevOps"
 vnet_name    = "Aline-VNet"
