@@ -11,7 +11,7 @@ resource "azurerm_network_security_rule" "ssh" {
   access                      = "Allow"
   protocol                    = "Tcp"
 
-  source_port_range           = "*"   # ✅ REQUIRED
+  source_port_range           = "*"
   destination_port_range      = "22"
 
   source_address_prefix       = var.allowed_ip
@@ -28,7 +28,7 @@ resource "azurerm_network_security_rule" "web" {
   access                      = "Allow"
   protocol                    = "Tcp"
 
-  source_port_range           = "*"   # ✅ REQUIRED
+  source_port_range           = "*"   
   destination_port_ranges     = ["80", "443"]
 
   source_address_prefix       = "*"
@@ -45,7 +45,7 @@ resource "azurerm_network_security_rule" "mysql" {
   access                      = "Allow"
   protocol                    = "Tcp"
 
-  source_port_range           = "*"   # ✅ REQUIRED
+  source_port_range           = "*"  
   destination_port_range      = "3306"
 
   source_address_prefix       = var.subnet2_cidr
