@@ -1,9 +1,9 @@
-rg-name     = "aline-infra"
-location    = "eastus"
-environment = "Prod"
-owner       = "DevOps"
-vnet_name   = "Aline-VNet"
-vnet_cidr   = ["10.48.0.0/16"]
+rg-name      = "aline-infra"
+location     = "eastus"
+environment  = "Prod"
+owner        = "DevOps"
+vnet_name    = "Aline-VNet"
+vnet_cidr    = ["10.48.0.0/16"]
 subnet1_cidr = ["10.48.1.0/24"]
 subnet2_cidr = ["10.48.2.0/24"]
 subnet3_cidr = ["10.48.3.0/24"]
