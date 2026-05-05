@@ -2,26 +2,26 @@ resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  address_space       = ["10.48.0.0/16"]
+  address_space       = var.vnet_cidr
 }
 
 resource "azurerm_subnet" "web" {
-  name                 = "web-subnet"
+  name                 = var.subnet1_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.48.1.0/24"]
+  address_prefixes     = var.subnet1_cidr
 }
 
 resource "azurerm_subnet" "app" {
-  name                 = "app-subnet"
+  name                 = var.subnet2_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.48.2.0/24"]
+  address_prefixes     = var.subnet2_cidr
 }
 
 resource "azurerm_subnet" "db" {
-  name                 = "db-subnet"
+  name                 = var.subnet3_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["10.48.3.0/24"]
+  address_prefixes     = var.subnet3_cidr
 }
