@@ -91,7 +91,7 @@ QUERY
   }
 
   action {
-    action_group = azurerm_monitor_action_group.ag.id
+    action_group = [azurerm_monitor_action_group.ag.id]
   }
 
   depends_on = [
