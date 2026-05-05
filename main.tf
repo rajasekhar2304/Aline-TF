@@ -44,7 +44,7 @@ module "vm" {
 }
 
 module "monitor" {
-  source              = "./modules/monitor"
+  source              = "./modules/monitoring"
   vm_id               = module.vm.vm_id
   vm_name             = "web-vm"
   location            = var.location
