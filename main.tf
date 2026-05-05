@@ -29,5 +29,5 @@ module "nsg" {
   app_subnet_id       = module.vnet.app_subnet_id
   db_subnet_id        = module.vnet.db_subnet_id
   allowed_ip          = var.allowed_ip
-  subnet2_cidr        = module.vnet.azurerm_subnet.app.address_prefixes
+  subnet2_cidr        = module.vnet.app_subnet_cidr
 }

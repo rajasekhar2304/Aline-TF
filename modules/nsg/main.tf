@@ -11,6 +11,7 @@ resource "azurerm_network_security_rule" "ssh" {
   access                      = "Allow"
   protocol                    = "Tcp"
   source_address_prefix       = var.allowed_ip
+  destination_address_prefix  = "*"
   destination_port_range      = "22"
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
@@ -23,6 +24,7 @@ resource "azurerm_network_security_rule" "web" {
   access                      = "Allow"
   protocol                    = "Tcp"
   source_address_prefix       = "*"
+  destination_address_prefix  = "*"
   destination_port_ranges     = ["80", "443"]
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
@@ -35,6 +37,7 @@ resource "azurerm_network_security_rule" "mysql" {
   access                      = "Allow"
   protocol                    = "Tcp"
   source_address_prefix       = var.subnet2_cidr  # ONLY App subnet
+  destination_address_prefix  = "*"
   destination_port_range      = "3306"
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
