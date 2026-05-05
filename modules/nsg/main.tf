@@ -10,9 +10,13 @@ resource "azurerm_network_security_rule" "ssh" {
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
+
+  source_port_range           = "*"   # ✅ REQUIRED
+  destination_port_range      = "22"
+
   source_address_prefix       = var.allowed_ip
   destination_address_prefix  = "*"
-  destination_port_range      = "22"
+
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
@@ -23,9 +27,13 @@ resource "azurerm_network_security_rule" "web" {
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
+
+  source_port_range           = "*"   # ✅ REQUIRED
+  destination_port_ranges     = ["80", "443"]
+
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  destination_port_ranges     = ["80", "443"]
+
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
@@ -36,9 +44,13 @@ resource "azurerm_network_security_rule" "mysql" {
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
-  source_address_prefix       = var.subnet2_cidr  # ONLY App subnet
-  destination_address_prefix  = "*"
+
+  source_port_range           = "*"   # ✅ REQUIRED
   destination_port_range      = "3306"
+
+  source_address_prefix       = var.subnet2_cidr
+  destination_address_prefix  = "*"
+
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
